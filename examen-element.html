@@ -1,0 +1,120 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="examen-element">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      .tooltip {
+        position: relative;
+        display: inline-block;
+      }
+
+      .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -60px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+      }
+
+      .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+      }
+    </style>
+    <!-- Iron Input -->
+    <iron-input on-change="addUser">
+      <input id="newUser" placeholder="Nuevo Usuario">
+    </iron-input>
+    <!-- ToolTip and Dom Repeat -->
+    <template is="dom-repeat" items="[[users]]" as="user">
+      <div class="tooltip">
+        <ul>
+          <li>[[user.firstname]]</li>
+        </ul>
+        <span class="tooltiptext" on-mouseover="isHover">[[user.lastname]]</span>
+      </div>
+    </template>
+
+  </template>
+
+  <script>
+    /**
+     * `examen-element`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ExamenElement extends Polymer.Element {
+      static get is() {
+        return 'examen-element';
+      }
+      static get properties() {
+        return {
+          numberElement: {
+            type: Number,
+            value: 10
+          },
+          name: {
+            type: String,
+            value: ''
+          },
+          users: {
+            type: Object,
+            value: [{
+                firstname: "Jack",
+                lastname: "Black",
+              },
+              {
+                firstname: "Anne",
+                lastname: "Rice",
+              },
+              {
+                firstname: "Steve",
+                lastname: "Jobs",
+              },
+              {
+                firstname: "Emma",
+                lastname: "Stone",
+              }
+            ]
+          }
+        };
+      }
+      addUser() {
+        const inputNode = this.shadowRoot.querySelector('#newUser');
+        this.users = [...this.users, inputNode.value];
+        inputNode.value = ''
+        console.log(this.users);
+
+      }
+    }
+
+    window.customElements.define(ExamenElement.is, ExamenElement);
+  </script>
+</dom-module>
