@@ -55,7 +55,7 @@
         <ul>
           <li>[[user.firstname]]</li>
         </ul>
-        <span class="tooltiptext" on-mouseover="isHover">[[user.lastname]]</span>
+        <span class="tooltiptext" on-mouseover="isHover">[[user.firstname]]</span>
       </div>
     </template>
 
@@ -81,38 +81,34 @@
             value: 10
           },
           name: {
-            type: String,
-            value: ''
+            type: Object,
+            value: [{
+              firstname: ''
+            }]
           },
           users: {
             type: Object,
             value: [{
                 firstname: "Jack",
-                lastname: "Black",
               },
               {
                 firstname: "Anne",
-                lastname: "Rice",
               },
               {
                 firstname: "Steve",
-                lastname: "Jobs",
               },
               {
                 firstname: "Emma",
-                lastname: "Stone",
               }
             ]
           }
         };
       }
-      addUser() {
-        const inputNode = this.shadowRoot.querySelector('#newUser');
-        this.users = [...this.users, inputNode.value];
-        inputNode.value = ''
-        console.log(this.users);
-
-      }
+      // addUser() {
+      //   const inputNode = this.shadowRoot.querySelector('#newUser');
+      //   this.users = [...this.users, inputNode.value];
+      //   inputNode.value = '';
+      // }
     }
 
     window.customElements.define(ExamenElement.is, ExamenElement);
