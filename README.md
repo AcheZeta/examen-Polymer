@@ -2,7 +2,7 @@
 
 ## Question 1. Which of the following are interfaces of web applications?
 
-* Web & application server interface
+* **Web & application server interface**
 * Application & DB interface
 * Both
 * None
@@ -12,7 +12,7 @@
 * 100
 * 200
 * 300
-* 400
+* **400**
 * 500
 
 ## Question 3. Predict the output of the following code:
@@ -36,50 +36,16 @@ this.education = "B.Tech";
 }
 ```
 
-
-
-> False 
+>> false
 education
 name
 surname
 residence
 age
-
-> false
-education
-name
-surname
-residence
-age
-
-> True
-education
-surname
-residence
-age
-
-> true
-education
-surname
-residence
-age
-
-> true
-education
-name
-surname
-residence
-age
-
-> false
-education
-surname
-residence
-age
-
-> Compile time error
 
 ## Question 4.
+
+**Rama Develop** 
 
 ```
 1.- Create a new component with Polymer
@@ -165,16 +131,9 @@ Constraints
 > We want to display both sentences in same line. Which css code we must use?
 
 ```js
-<style> .test{ display: inline; }
+<style>
+.test{ display: inline; }
 </style>
 
-<style> #test{ display: inline; }
-</style>
-
-<style> .test{ float: inline; }
-</style>
-
-<style> .test{ float: right; }
-</style>
 ```
 
